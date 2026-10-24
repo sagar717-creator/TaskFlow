@@ -1,6 +1,6 @@
 // Per-user Firestore workspace. Collections are scoped below users/{uid}.
 import {
-  collection, deleteDoc, doc, getDocs, query, setDoc, updateDoc,
+  collection, deleteDoc, doc, getDocs, setDoc, updateDoc,
   writeBatch
 } from 'firebase/firestore';
 import { firestore } from './firebase.js';
