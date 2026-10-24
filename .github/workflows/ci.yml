@@ -47,14 +47,14 @@ jobs:
           name: taskflow-dist
           path: dist/
     docker:
-    name: Build, smoke-test and publish image
-    needs: build-test
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+      name: Build, smoke-test and publish image
+      needs: build-test
+      runs-on: ubuntu-latest
+      permissions:
+       contents: read
+       packages: write
 
-    steps:
+      steps:
       - name: Check out code
         uses: actions/checkout@v4
 
@@ -87,7 +87,7 @@ jobs:
             sleep 2
           done
           curl -fs http://localhost:8080/health
-          curl -fs http://localhost:8080/ | grep -q "<div id=\"app\"" || curl -fs http://localhost:8080/ > /dev/null
+          curl -fs http://localhost:8080/ > /dev/null
           docker rm -f taskflow
 
       - name: Log in to GitHub Container Registry
