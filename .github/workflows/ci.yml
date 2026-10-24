@@ -46,15 +46,16 @@ jobs:
         with:
           name: taskflow-dist
           path: dist/
-    docker:
-      name: Build, smoke-test and publish image
-      needs: build-test
-      runs-on: ubuntu-latest
-      permissions:
-       contents: read
-       packages: write
 
-      steps:
+  docker:
+    name: Build, smoke-test and publish image
+    needs: build-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
       - name: Check out code
         uses: actions/checkout@v4
 
